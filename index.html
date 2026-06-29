@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CORE‑SYNC v5.0 | CLASSIFIED ONLY</title>
+    <script>
+    document.addEventListener('contextmenu', e=>e.preventDefault());
+    document.addEventListener('keydown', e=>{
+        if(e.ctrlKey || e.key==='F12' || e.key==='u') e.preventDefault();
+    });
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="audioUtama" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<audio id="audioAtmosfer" loop volume="0.3">
+    <source src="https://www.soundjay.com/ambient/sounds/rain-01.mp3" type="audio/mpeg">
+</audio>
+
+<div id="layarKunci">
+    <div class="kotakPeringatan">
+        <h2>⚠️ PERINGATAN KEAMANAN TINGKAT‑5</h2>
+        <p>AKSES TERBATAS KHUSUS PERSONEL BERWENANG SAJA.<br>
+        SEMUA AKTIVITAS DICATAT DALAM LOG PUSAT.<br>
+        PENYALINAN ATAU PENYEBARAN DATA DILARANG KERAS.</p>
+        <button onclick="bukaSistem(); playAudio();">✅ SAYA MEMAHAMI & LANJUT</button>
+    </div>
+</div>
+
+<div class="pindaiGaris"></div>
+<div class="bisingLayar"></div>
+<div id="hujanKode"></div>
+
+<div id="tombolArsip" onclick="bukaTutup('daftarUtama')">⋮ ARCHIVE</div>
+
+<div id="petunjuk">
+» KLIK <strong>⋮ ARCHIVE</strong> DI ATAS UNTUK MEMBUKA DAFTAR NEGARA<br>
+» PILIH NEGARA → PILIH KATEGORI → PILIH BERKAS<br>
+» <em>⚠️ POPUP DOSSIER AKAN TERBUKA</em>
+</div>
+
+<div id="kepala">
+    <h1>⚡ CORE‑SYNC v5.0 <span>FULL‑ACCESS</span></h1>
+    <p>SECURE • ENCRYPTED • OFFLINE‑VAULT</p>
+    <div class="garisDenyut"></div>
+</div>
+
+<div id="searchContainer">
+    <input type="text" id="searchInput" placeholder="🔍 CARI BERKAS..." oninput="cariBerkas()">
+    <div id="searchResults"></div>
+</div>
+
+<div id="tombolAudio" onclick="toggleAudio()">🔊</div>
+<div id="tombolFullscreen" onclick="toggleFullscreen()">⛶</div>
+
+<div id="daftarUtama">
+
+    <!-- ===== 1. INDONESIA ===== -->
+    <div class="kelompok" onclick="bukaTutup('indo')">1. 🇮🇩 INDONESIA</div>
+    <div id="indo" class="submenu">
+        <div class="kategori" onclick="bukaTutup('indo_kriminal')">🔪 PEMBUNUHAN & KRIMINAL</div>
+        <div id="indo_kriminal" class="submenu">
+            <div class="item" onclick="bukaBerkas('MUNIR')">» MUNIR SAID THALIB</div>
+            <div class="item" onclick="bukaBerkas('SUMANTO')">» SUMANTO KANIBAL</div>
+            <div class="item" onclick="bukaBerkas('RYAN')">» RYAN JOMBANG</div>
+            <div class="item" onclick="bukaBerkas('SIANIDA')">» KOPI SIANIDA</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('indo_konspirasi')">🕵️ KONSPIRASI NEGARA</div>
+        <div id="indo_konspirasi" class="submenu">
+            <div class="item" onclick="bukaBerkas('TRISAKTI')">» TRAGEDI TRISAKTI</div>
+            <div class="item" onclick="bukaBerkas('MARSINAH')">» AKTIVIS MARSINAH</div>
+            <div class="item" onclick="bukaBerkas('G30S')">» G30S/PKI</div>
+            <div class="item" onclick="bukaBerkas('PETRUS')">» OPERASI PETRUS</div>
+            <div class="item" onclick="bukaBerkas('WIJI')">» WIJI THUKUL</div>
+            <div class="item" onclick="bukaBerkas('TALANGSARI')">» TRAGEDI TALANGSARI</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('indo_teror')">💣 TEROR & TRAGEDI</div>
+        <div id="indo_teror" class="submenu">
+            <div class="item" onclick="bukaBerkas('BALI')">» BOM BALI 2002</div>
+            <div class="item" onclick="bukaBerkas('DUKUN')">» DUKUN BANYUWANGI</div>
+            <div class="item" onclick="bukaBerkas('VINA')">» VINA CIREBON</div>
+        </div>
+    </div>
+
+    <!-- ===== 2. USA ===== -->
+    <div class="kelompok" onclick="bukaTutup('us')">2. 🇺🇸 USA</div>
+    <div id="us" class="submenu">
+        <div class="kategori" onclick="bukaTutup('us_serial')">🔪 SERIAL KILLER</div>
+        <div id="us_serial" class="submenu">
+            <div class="item" onclick="bukaBerkas('ZODIAC')">» ZODIAC KILLER</div>
+            <div class="item" onclick="bukaBerkas('DAHMER')">» JEFFREY DAHMER</div>
+            <div class="item" onclick="bukaBerkas('BUNDY')">» TED BUNDY</div>
+            <div class="item" onclick="bukaBerkas('DAHLIA')">» BLACK DAHLIA</div>
+            <div class="item" onclick="bukaBerkas('GACY')">» JOHN WAYNE GACY</div>
+            <div class="item" onclick="bukaBerkas('RIDGWAY')">» GREEN RIVER KILLER</div>
+            <div class="item" onclick="bukaBerkas('RAMIREZ')">» RICHARD RAMIREZ</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('us_teror')">💣 TERORISME & POLITIK</div>
+        <div id="us_teror" class="submenu">
+            <div class="item" onclick="bukaBerkas('UNABOMBER')">» THE UNABOMBER</div>
+            <div class="item" onclick="bukaBerkas('JONESTOWN')">» JONESTOWN MASSACRE</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('us_misteri')">🔍 MISTERI</div>
+        <div id="us_misteri" class="submenu">
+            <div class="item" onclick="bukaBerkas('ALCATRAZ')">» ALCATRAZ ESCAPE 1962</div>
+        </div>
+    </div>
+
+    <!-- ===== 3. MEKSIKO ===== -->
+    <div class="kelompok" onclick="bukaTutup('mex')">3. 🇲🇽 MEKSIKO</div>
+    <div id="mex" class="submenu">
+        <div class="kategori" onclick="bukaTutup('mex_kartel')">💀 KARTEL & NARKOBA</div>
+        <div id="mex_kartel" class="submenu">
+            <div class="item" onclick="bukaBerkas('GUZMAN')">» EL CHAPO GUZMAN</div>
+            <div class="item" onclick="bukaBerkas('ZEZETA')">» LOS ZETAS</div>
+            <div class="item" onclick="bukaBerkas('TIJUANA')">» KARTEL TIJUANA</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('mex_kejahatan')">🔪 KEJAHATAN & TRAGEDI</div>
+        <div id="mex_kejahatan" class="submenu">
+            <div class="item" onclick="bukaBerkas('JUAREZ')">» FEMISIDA JUAREZ</div>
+            <div class="item" onclick="bukaBerkas('POZOLERO')">» EL POZOLERO</div>
+            <div class="item" onclick="bukaBerkas('AYOTZINAPA')">» TRAGEDI AYOTZINAPA</div>
+        </div>
+    </div>
+
+    <!-- ===== 4. JEPANG ===== -->
+    <div class="kelompok" onclick="bukaTutup('jp')">4. 🇯🇵 JEPANG</div>
+    <div id="jp" class="submenu">
+        <div class="kategori" onclick="bukaTutup('jp_pembunuhan')">🔪 PEMBUNUHAN & TEROR</div>
+        <div id="jp_pembunuhan" class="submenu">
+            <div class="item" onclick="bukaBerkas('AKIHABARA')">» PEMBANTAIAN AKIHABARA</div>
+            <div class="item" onclick="bukaBerkas('SAGAMIHARA')">» PENIKAMAN SAGAMIHARA</div>
+            <div class="item" onclick="bukaBerkas('KYOTO')">» KYOTO ANIMATION</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('jp_kriminal')">💀 KRIMINAL SADIS</div>
+        <div id="jp_kriminal" class="submenu">
+            <div class="item" onclick="bukaBerkas('JUNKO')">» JUNKO FURUTA</div>
+        </div>
+    </div>
+
+    <!-- ===== 5. RUSIA ===== -->
+    <div class="kelompok" onclick="bukaTutup('ru')">5. 🇷🇺 RUSIA</div>
+    <div id="ru" class="submenu">
+        <div class="kategori" onclick="bukaTutup('ru_serial')">🔪 SERIAL KILLER</div>
+        <div id="ru_serial" class="submenu">
+            <div class="item" onclick="bukaBerkas('CHIKATILO')">» ANDREI CHIKATILO</div>
+            <div class="item" onclick="bukaBerkas('CHESSBOARD')">» CHESSBOARD KILLER</div>
+            <div class="item" onclick="bukaBerkas('ACIDMAN')">» THE ACID MAN</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('ru_teror')">💣 TEROR & TRAGEDI</div>
+        <div id="ru_teror" class="submenu">
+            <div class="item" onclick="bukaBerkas('BESLAN')">» BESLAN SIEGE</div>
+        </div>
+    </div>
+
+    <!-- ===== 6. KOLOMBIA ===== -->
+    <div class="kelompok" onclick="bukaTutup('col')">6. 🇨🇴 KOLOMBIA</div>
+    <div id="col" class="submenu">
+        <div class="kategori" onclick="bukaTutup('col_kartel')">💀 KARTEL & NARKOBA</div>
+        <div id="col_kartel" class="submenu">
+            <div class="item" onclick="bukaBerkas('ESCOBAR')">» PABLO ESCOBAR</div>
+            <div class="item" onclick="bukaBerkas('CALI')">» KARTEL CALI</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('col_politik')">🏛️ POLITIK & KONFLIK</div>
+        <div id="col_politik" class="submenu">
+            <div class="item" onclick="bukaBerkas('M19')">» GERILYA M-19</div>
+        </div>
+    </div>
+
+    <!-- ===== 7. JERMAN ===== -->
+    <div class="kelompok" onclick="bukaTutup('de')">7. 🇩🇪 JERMAN</div>
+    <div id="de" class="submenu">
+        <div class="kategori" onclick="bukaTutup('de_kriminal')">💀 KRIMINAL SADIS</div>
+        <div id="de_kriminal" class="submenu">
+            <div class="item" onclick="bukaBerkas('FRITZL')">» JOSEF FRITZL</div>
+        </div>
+    </div>
+
+    <!-- ===== 8. DARK POLITICS ===== -->
+    <div class="kelompok" onclick="bukaTutup('sec')">8. ⚫ DARK POLITICS</div>
+    <div id="sec" class="submenu">
+        <div class="kategori" onclick="bukaTutup('sec_konspirasi')">🕵️ KONSPIRASI & PENGKHIANATAN</div>
+        <div id="sec_konspirasi" class="submenu">
+            <div class="item" onclick="bukaBerkas('CAESAR')">» BRUTUS & CAESAR</div>
+            <div class="item" onclick="bukaBerkas('WATERGATE')">» WATERGATE SCANDAL</div>
+            <div class="item" onclick="bukaBerkas('JFK')">» KONSPIRASI KEMATIAN JFK</div>
+        </div>
+        <div class="kategori" onclick="bukaTutup('sec_misteri')">🔍 MISTERI SEJARAH</div>
+        <div id="sec_misteri" class="submenu">
+            <div class="item" onclick="bukaBerkas('GAGARIN')">» KEMATIAN YURI GAGARIN</div>
+        </div>
+    </div>
+
+</div>
+
+<div id="kotakPopup">
+    <div class="bingkaiArsip">
+        <h2 id="judulKasus"></h2>
+        <div id="isiKasus"></div>
+        <button onclick="tutupPopup()">CLOSE DOSSIER</button>
+    </div>
+</div>
+
+<div id="statsPanel">
+    <span id="statsBerkas">📂 0 berkas</span>
+    <span id="statsWaktu">⏱ 0 menit</span>
+</div>
+
+<div id="favoritPanel">
+    <span id="favoritToggle" onclick="toggleFavorit()">⭐ FAVORIT</span>
+    <div id="favoritList"></div>
+</div>
+
+<div id="backToTop" onclick="scrollToTop()">⬆</div>
+
+<div id="statusBar">
+    <div id="logSistem">> ⏳ MEMUAT VAULT...</div>
+    <div id="cpuMeter">> CPU LOAD: 0% | VAULT: MENUNGGU</div>
+</div>
+
+<div id="creditContainer">
+    <div id="creditLine1">⚡ SYSTEM ID</div>
+    <div id="creditLine2">CORE-SYSTEM: Fatahh🚀</div>
+    <div id="creditLine3">// ELITE ACCESS //</div>
+</div>
+
+<script src="database.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
